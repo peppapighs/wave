@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Add an executable with the above sources
-add_executable(${PROJECT_NAME} src/main.cpp src/wave.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp src/wave.cpp src/observer.cpp)
 
 # Set the directories that should be included in the build command for this target
 # when running g++ these will be included as -I/directory/path/
