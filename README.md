@@ -1,4 +1,4 @@
-# Implementation of Wave Function Collapse Function in C++
+# Wave Function Collapse Function in C++
 
 This is a C++ implementation of the [Wave Function Collapse algorithm](https://github.com/mxgmn/WaveFunctionCollapse).
 
