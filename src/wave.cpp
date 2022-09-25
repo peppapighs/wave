@@ -29,6 +29,7 @@ void Wave::remove_pattern(std::size_t index, std::size_t pattern) {
     if (data[index][pattern])
         return;
 
+    data[index][pattern] = true;
     sum_weights[index] -= weights[pattern];
     sum_w_log_w[index] -= w_log_w[pattern];
     entropy[index] =
@@ -60,6 +61,21 @@ long Wave::get_min_entropy(std::mt19937 &rng) const {
     }
 
     return min_index;
+}
+
+std::size_t Wave::choose_pattern(std::size_t index, std::mt19937 &rng) const {
+    double random_value =
+        std::uniform_real_distribution<>(0, sum_weights[index])(rng);
+
+    for (std::size_t i = 0; i < num_patterns; i++) {
+        if (data[index][i])
+            continue;
+        if (random_value <= weights[i])
+            return i;
+        random_value -= weights[i];
+    }
+
+    return 0;
 }
 
 bool Wave::is_impossible() const {
