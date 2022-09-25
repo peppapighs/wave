@@ -1,10 +1,5 @@
 #include "wave.h"
 
-#include <cmath>
-#include <numeric>
-#include <random>
-#include <vector>
-
 // Compute w * log(w)
 std::vector<double> get_w_log_w(const std::vector<double> &weights) {
     std::vector<double> w_log_w;
