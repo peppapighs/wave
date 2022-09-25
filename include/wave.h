@@ -37,6 +37,7 @@ class Wave {
     std::vector<std::size_t> remaining_patterns;
 
   public:
+    // Initialize wave
     Wave(std::size_t row, std::size_t col, const std::vector<double> &weights);
 
     // Remove pattern from the wave
