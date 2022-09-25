@@ -2,6 +2,8 @@
 #include "direction.h"
 #include "wave.h"
 
+#include <tuple>
+
 Observer::Observer(
     std::size_t row, std::size_t col,
     const std::vector<std::array<std::vector<std::size_t>, NUM_DIRECTIONS>>
@@ -31,8 +33,8 @@ void Observer::remove_pattern(std::size_t i, std::size_t j,
 
 void Observer::propagate(Wave &wave) {
     while (!queue.empty()) {
-        std::pair<std::size_t, std::size_t> current_observation = queue.back();
-        auto &[index, pattern] = current_observation;
+        std::size_t index, pattern;
+        std::tie(index, pattern) = queue.back();
         queue.pop_back();
 
         long r = index / col, c = index % col;

@@ -3,7 +3,6 @@
 
 #include <array>
 #include <iostream>
-#include <memory>
 #include <vector>
 
 const int SEED = 42;
@@ -32,10 +31,9 @@ int main(int argc, char **argv) {
                     compatibility[i][direction].emplace_back(j);
         }
 
-    std::unique_ptr<Generator> generator =
-        std::make_unique<Generator>(SEED, ROW, COL, WEIGHTS, compatibility);
+    Generator generator(SEED, ROW, COL, WEIGHTS, compatibility);
 
-    std::vector<std::size_t> patterns = generator->generate();
+    std::vector<std::size_t> patterns = generator.generate();
     if (patterns.empty()) {
         std::cerr << "Failed to generate a maze." << std::endl;
         return 1;
