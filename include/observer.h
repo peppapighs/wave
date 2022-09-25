@@ -4,10 +4,6 @@
 #include "direction.h"
 #include "wave.h"
 
-#include <array>
-#include <tuple>
-#include <vector>
-
 class Observer {
   private:
     // Size of the wave

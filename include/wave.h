@@ -2,7 +2,6 @@
 #define INCLUDE_WAVE_H_
 
 #include <random>
-#include <vector>
 
 // Noise factor for breaking entropy ties
 const double NOISE_FACTOR = 1E-6;
