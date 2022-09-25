@@ -27,7 +27,7 @@ Generator::ObserveStatus Generator::observe() {
 
     std::size_t pattern = wave.choose_pattern(index, rng);
     for (std::size_t i = 0; i < num_patterns; i++)
-        if (wave.get_data(index, i) && i != pattern) {
+        if (!wave.get_data(index, i) && i != pattern) {
             observer.remove_pattern(index, i);
             wave.remove_pattern(index, i);
         }
