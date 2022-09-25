@@ -39,6 +39,10 @@ void Wave::remove_pattern(std::size_t index, std::size_t pattern) {
     --remaining_patterns[index];
 }
 
+void Wave::remove_pattern(std::size_t i, std::size_t j, std::size_t pattern) {
+    remove_pattern(i * col + j, pattern);
+}
+
 long Wave::get_min_entropy(std::mt19937 &rng) const {
     double min_entropy = std::numeric_limits<double>::max();
     long min_index = -1;

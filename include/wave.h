@@ -42,6 +42,9 @@ class Wave {
     // Remove pattern from the wave
     void remove_pattern(std::size_t index, std::size_t pattern);
 
+    // Remove pattern from the wave
+    void remove_pattern(std::size_t i, std::size_t j, std::size_t pattern);
+
     // Get the index of the cell with minimum entropy
     long get_min_entropy(std::mt19937 &rng) const;
 };
