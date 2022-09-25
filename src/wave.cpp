@@ -1,5 +1,7 @@
 #include "wave.h"
 
+#include <algorithm>
+
 // Compute w * log(w)
 std::vector<double> get_w_log_w(const std::vector<double> &weights) {
     std::vector<double> w_log_w;
@@ -58,4 +60,9 @@ long Wave::get_min_entropy(std::mt19937 &rng) const {
     }
 
     return min_index;
+}
+
+bool Wave::is_impossible() const {
+    return std::any_of(remaining_patterns.begin(), remaining_patterns.end(),
+                       [](std::size_t x) { return x == 0; });
 }

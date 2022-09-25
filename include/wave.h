@@ -46,7 +46,11 @@ class Wave {
     void remove_pattern(std::size_t i, std::size_t j, std::size_t pattern);
 
     // Get the index of the cell with minimum entropy
+    // Return -1 if no cell is available
     long get_min_entropy(std::mt19937 &rng) const;
+
+    // Return true if the wave is impossible to solve
+    bool is_impossible() const;
 };
 
 #endif
