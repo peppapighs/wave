@@ -49,6 +49,12 @@ class Wave {
     // Return -1 if no cell is available
     long get_min_entropy(std::mt19937 &rng) const;
 
+    // Get the data of the cell
+    bool get_data(std::size_t index, std::size_t pattern) const;
+
+    // Get the generated patterns
+    std::vector<std::size_t> get_patterns() const;
+
     // Choose a pattern randomly from the cell
     std::size_t choose_pattern(std::size_t index, std::mt19937 &rng) const;
 

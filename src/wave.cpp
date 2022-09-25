@@ -63,6 +63,23 @@ long Wave::get_min_entropy(std::mt19937 &rng) const {
     return min_index;
 }
 
+bool Wave::get_data(std::size_t index, std::size_t pattern) const {
+    return data[index][pattern];
+}
+
+std::vector<std::size_t> Wave::get_patterns() const {
+    std::vector<std::size_t> patterns(size);
+
+    for (std::size_t i = 0; i < size; i++)
+        for (std::size_t j = 0; j < num_patterns; j++)
+            if (!data[i][j]) {
+                patterns[i] = j;
+                break;
+            }
+
+    return patterns;
+}
+
 std::size_t Wave::choose_pattern(std::size_t index, std::mt19937 &rng) const {
     double random_value =
         std::uniform_real_distribution<>(0, sum_weights[index])(rng);
